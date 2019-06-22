@@ -1294,6 +1294,10 @@ void App::EnableSandbox(mate::Arguments* args) {
   command_line->AppendSwitch(switches::kEnableSandbox);
 }
 
+void App::DisablePluginSandbox(const std::string& mime_type) {
+  Browser::Get()->DisablePluginSandbox(mime_type);
+}
+
 void App::SetUserAgentFallback(const std::string& user_agent) {
   AtomBrowserClient::Get()->SetUserAgent(user_agent);
 }
@@ -1493,6 +1497,7 @@ void App::BuildPrototype(v8::Isolate* isolate,
       .SetProperty("userAgentFallback", &App::GetUserAgentFallback,
                    &App::SetUserAgentFallback)
       .SetMethod("enableSandbox", &App::EnableSandbox)
+      .SetMethod("disablePluginSandbox", &App::DisablePluginSandbox)
       .SetProperty("allowRendererProcessReuse",
                    &App::CanBrowserClientUseCustomSiteInstance,
                    &App::SetBrowserClientCanUseCustomSiteInstance);
