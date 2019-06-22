@@ -64,7 +64,8 @@ bool AtomBundleMover::ShouldContinueMove(ConflictType type,
       if (!value.As<v8::Boolean>()->Value())
         return false;
     } else {
-      args->ThrowError("Invalid conflict handler return type.");
+      args->ThrowError(
+          "Invalid conflict handler return type: must be boolean.");
     }
   }
   return true;
