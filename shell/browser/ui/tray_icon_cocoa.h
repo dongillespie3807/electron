@@ -37,17 +37,19 @@ class TrayIconCocoa : public TrayIcon, public AtomMenuModel::Observer {
 
  protected:
   // AtomMenuModel::Observer:
-  void OnMenuWillClose() override;
+  // void OnMenuWillClose() override;
 
  private:
   // Atom custom view for NSStatusItem.
-  base::scoped_nsobject<StatusItemView> status_item_view_;
+  // base::scoped_nsobject<StatusItemView> status_item_view_;
+
+  base::scoped_nsobject<NSStatusItem> status_item_;
 
   // Status menu shown when right-clicking the system icon.
-  base::scoped_nsobject<AtomMenuController> menu_;
+  // base::scoped_nsobject<AtomMenuController> menu_;
 
   // Used for unregistering observer.
-  AtomMenuModel* menu_model_ = nullptr;  // weak ref.
+  // AtomMenuModel* menu_model_ = nullptr;  // weak ref.
 
   DISALLOW_COPY_AND_ASSIGN(TrayIconCocoa);
 };
