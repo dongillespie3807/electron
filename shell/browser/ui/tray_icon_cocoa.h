@@ -12,7 +12,7 @@
 #include "base/mac/scoped_nsobject.h"
 #include "shell/browser/ui/tray_icon.h"
 
-@class AtomMenuController;
+// @class AtomMenuController;
 @class StatusItemView;
 
 namespace electron {
@@ -40,10 +40,8 @@ class TrayIconCocoa : public TrayIcon, public AtomMenuModel::Observer {
   // void OnMenuWillClose() override;
 
  private:
-  // Atom custom view for NSStatusItem.
-  // base::scoped_nsobject<StatusItemView> status_item_view_;
-
-  base::scoped_nsobject<NSStatusItem> status_item_;
+  // Electron custom view for NSStatusItem.
+  base::scoped_nsobject<StatusItemView> status_item_view_;
 
   // Status menu shown when right-clicking the system icon.
   // base::scoped_nsobject<AtomMenuController> menu_;
